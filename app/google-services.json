@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267728980918",
+    "project_id": "za-miboda",
+    "storage_bucket": "za-miboda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267728980918:android:f60ff831a75172413c4f17",
+        "android_client_info": {
+          "package_name": "com.alexym.android.zamiboda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267728980918-e41s9pu87sb8huqv122ddcrnrg1n5gp4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFNgMHh2GRYiI79guGzLpb3HlNI3ZG_8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267728980918-e41s9pu87sb8huqv122ddcrnrg1n5gp4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
