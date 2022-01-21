@@ -5,4 +5,16 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="day_size_font">35sp</dimen>
+    <dimen name="day_size_title_font">20sp</dimen>
+    <dimen name="dots_size_font">30sp</dimen>
+
+    <dimen name="ex_small_margin">4dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="normal_margin">12dp</dimen>
+    <dimen name="large_margin">16dp</dimen>
+    <dimen name="ex_large_margin">20dp</dimen>
+    <dimen name="image_width">220dp</dimen>
+    <dimen name="img_height">220dp</dimen>
+
 </resources>

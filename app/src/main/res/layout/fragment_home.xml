@@ -6,19 +6,224 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/good_vibrations"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/primaryLightColor"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Nuestra Boda" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/faltan_title_tv"
+            style="@style/date_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/faltan_weading"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/count_cl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/faltan_title_tv">
+
+            <TextView
+                android:id="@+id/day_count_tv"
+                style="@style/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="112" />
+
+            <TextView
+                android:id="@+id/dots_a_tv"
+                style="@style/dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/day_count_tv"
+                app:layout_constraintStart_toEndOf="@id/day_count_tv"
+                app:layout_constraintTop_toTopOf="@id/day_count_tv" />
+
+            <TextView
+                android:id="@+id/hour_count_tv"
+                style="@style/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/dots_a_tv"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="11" />
+
+            <TextView
+                android:id="@+id/dots_b_tv"
+                style="@style/dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/day_count_tv"
+                app:layout_constraintStart_toEndOf="@id/hour_count_tv"
+                app:layout_constraintTop_toTopOf="@id/day_count_tv" />
+
+            <TextView
+                android:id="@+id/minutes_count_tv"
+                style="@style/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/dots_b_tv"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="11" />
+
+            <TextView
+                android:id="@+id/dots_c_tv"
+                style="@style/dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/day_count_tv"
+                app:layout_constraintStart_toEndOf="@id/minutes_count_tv"
+                app:layout_constraintTop_toTopOf="@id/day_count_tv" />
+
+            <TextView
+                android:id="@+id/seconds_count_tv"
+                style="@style/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/dots_c_tv"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="11" />
+
+            <TextView
+                android:id="@+id/day_title_tv"
+                style="@style/date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/days_title"
+                app:layout_constraintEnd_toEndOf="@+id/day_count_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/day_count_tv" />
+
+            <TextView
+                android:id="@+id/hour_title_tv"
+                style="@style/date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hours_title"
+                app:layout_constraintEnd_toEndOf="@+id/hour_count_tv"
+                app:layout_constraintStart_toStartOf="@+id/hour_count_tv"
+                app:layout_constraintTop_toBottomOf="@id/hour_count_tv" />
+
+            <TextView
+                android:id="@+id/minutes_title_tv"
+                style="@style/date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/min_title"
+                app:layout_constraintEnd_toEndOf="@+id/minutes_count_tv"
+                app:layout_constraintStart_toStartOf="@+id/minutes_count_tv"
+                app:layout_constraintTop_toBottomOf="@id/minutes_count_tv" />
+
+            <TextView
+                android:id="@+id/seg_title_tv"
+                style="@style/date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seg_title"
+                app:layout_constraintEnd_toEndOf="@+id/seconds_count_tv"
+                app:layout_constraintStart_toStartOf="@+id/seconds_count_tv"
+                app:layout_constraintTop_toBottomOf="@id/seconds_count_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_cl">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_words"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nosotros_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/willpower"
+            android:text="@string/ours_title"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline" />
+
+        <TextView
+            android:id="@+id/our_weading_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/good_vibrations"
+            android:text="@string/title_weading"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nosotros_tv" />
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/shettricka"
+            android:textStyle="bold"
+            android:text="@string/date_weading"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/our_weading_home" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3"
+            app:layout_constraintGuide_begin="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

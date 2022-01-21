@@ -7,7 +7,17 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">Invitación</string>
+    <string name="menu_gallery">Galería</string>
+    <string name="menu_location">Ubicación</string>
+    <string name="menu_recomendation">Recomendaciones</string>
+
+    <string name="days_title">Días</string>
+    <string name="hours_title">Horas</string>
+    <string name="min_title">Minutos</string>
+    <string name="seg_title">Segundos</string>
+    <string name="title_weading">Nuestra Boda</string>
+    <string name="faltan_weading">Faltan</string>
+    <string name="date_weading">04 / 06 / 2022</string>
+    <string name="ours_title">Zaira &amp; Alejandro</string>
 </resources>
