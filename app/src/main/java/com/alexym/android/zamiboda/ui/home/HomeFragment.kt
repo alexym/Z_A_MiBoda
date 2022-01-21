@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-        initKonfetti()
+//        initKonfetti()
         homeViewModel.days.observe(viewLifecycleOwner, Observer {
             binding.dayCountTv.text = it
         })
