@@ -4,7 +4,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +15,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.alexym.android.zamiboda.databinding.ActivityMainBinding
+import com.alexym.android.zamiboda.ui.startAnimation
 import com.google.android.material.navigation.NavigationView
 
 
@@ -28,13 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            val gmmIntentUri =
-                Uri.parse("google.navigation:q=Thesan+Jardín+Temixco+Morelos")
-            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-            mapIntent.setPackage("com.google.android.apps.maps")
-            startActivity(mapIntent)
-        }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -47,6 +45,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val animation = AnimationUtils.loadAnimation(this, R.anim.circle_explotion_anim).apply {
+            duration = 700
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        binding.appBarMain.contentMain.fab.setOnClickListener { view ->
+            binding.appBarMain.contentMain.fab.isVisible = false
+            binding.appBarMain.contentMain.circleV.isVisible = true
+            binding.appBarMain.contentMain.circleV.startAnimation(animation) {
+                val gmmIntentUri =
+                    Uri.parse("google.navigation:q=Thesan+Jardín+Temixco+Morelos")
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                mapIntent.setPackage("com.google.android.apps.maps")
+                startActivity(mapIntent)
+                binding.appBarMain.contentMain.fab.isVisible = true
+                binding.appBarMain.contentMain.circleV.isVisible = false
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
