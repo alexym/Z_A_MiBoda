@@ -47,7 +47,11 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         val animation = AnimationUtils.loadAnimation(this, R.anim.circle_explotion_anim).apply {
-            duration = 700
+            duration = 400
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        val anim_fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out_circle).apply {
+            duration = 300
             interpolator = AccelerateDecelerateInterpolator()
         }
 
@@ -55,13 +59,16 @@ class MainActivity : AppCompatActivity() {
             binding.appBarMain.contentMain.fab.isVisible = false
             binding.appBarMain.contentMain.circleV.isVisible = true
             binding.appBarMain.contentMain.circleV.startAnimation(animation) {
-                val gmmIntentUri =
-                    Uri.parse("google.navigation:q=Thesan+Jardín+Temixco+Morelos")
-                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-                mapIntent.setPackage("com.google.android.apps.maps")
-                startActivity(mapIntent)
                 binding.appBarMain.contentMain.fab.isVisible = true
                 binding.appBarMain.contentMain.circleV.isVisible = false
+                binding.appBarMain.contentMain.circleV.startAnimation(anim_fade_out) {
+                    val gmmIntentUri =
+                        Uri.parse("google.navigation:q=Thesan+Jardín+Temixco+Morelos")
+                    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                    mapIntent.setPackage("com.google.android.apps.maps")
+                    startActivity(mapIntent)
+                }
+
             }
         }
     }
