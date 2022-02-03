@@ -10,6 +10,7 @@ import java.util.*
 
 class HomeViewModel : ViewModel() {
     lateinit var countdown_timer: CountDownTimer
+    var initializeKonfettiView = true
 
     private val _days = MutableLiveData<String>()
     val days: LiveData<String> = _days
@@ -23,9 +24,12 @@ class HomeViewModel : ViewModel() {
     private val _seconds = MutableLiveData<String>()
     val seconds: LiveData<String> = _seconds
 
+    val _isToday = MutableLiveData<Boolean>()
+    val isToday: LiveData<Boolean> = _isToday
+
     init {
         val currentTime = Calendar.getInstance().time
-        val format1 = SimpleDateFormat(Constants.DATE_FORMAT,Locale.getDefault())
+        val format1 = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
         val endDate = format1.parse(Constants.EVENT_DATE_TIME)
         var different = endDate.time - currentTime.time
         countdown_timer = object : CountDownTimer(different, 1000) {
@@ -48,6 +52,10 @@ class HomeViewModel : ViewModel() {
                 val elapsedSeconds = diff / secondsInMilli
 
                 _days.value = "$elapsedDays"
+                if (initializeKonfettiView) {
+                    initializeKonfettiView = false
+                    _isToday.value = elapsedDays == 0L
+                }
                 _hours.value = "$elapsedHours"
                 _minutes.value = "$elapsedMinutes"
                 _seconds.value = "$elapsedSeconds"

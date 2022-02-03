@@ -46,7 +46,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-//        initKonfetti()
         homeViewModel.days.observe(viewLifecycleOwner, Observer {
             binding.dayCountTv.text = it
         })
@@ -59,27 +58,10 @@ class HomeFragment : Fragment() {
         homeViewModel.seconds.observe(viewLifecycleOwner, Observer {
             binding.secondsCountTv.text = it
         })
-        // Sync
-//        val bitmap = Blurry.with(activity)
-//            .radius(10)
-//            .sampling(8)
-//            .capture(findViewById(R.id.right_bottom)).get()
-//        imageView.setImageDrawable(BitmapDrawable(resources, bitmap))
-
-// Async
-//        Blurry.with(activity)
-//            .radius(25)
-//            .sampling(4)
-//            .color(Color.argb(66, 255, 255, 0))
-//            .capture(binding.imageView2)
-//            .getAsync {
-//                binding.imageView2.setImageDrawable(BitmapDrawable(resources, it))
-//            }
-//        context?.let {
-//            Glide.with(it).load(resources.getDrawable(R.drawable.wedding))
-//                .apply(bitmapTransform( BlurTransformation(12)))
-//                .into(binding.imageView2)
-//        };
+        homeViewModel.isToday.observe(viewLifecycleOwner, Observer {
+            if (it)
+                initKonfetti()
+        })
     }
 
     private fun initKonfetti() {
