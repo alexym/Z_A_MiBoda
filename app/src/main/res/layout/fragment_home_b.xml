@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_home_b_scene"
     tools:context=".ui.home.HomeFragment">
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_image_cl"
         android:layout_width="0dp"
@@ -32,25 +36,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/nosotros_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/willpower"
-            android:text="@string/ours_title"
-            android:textAlignment="center"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline" />
+
 
         <TextView
             android:id="@+id/our_weading_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/good_vibrations"
             android:text="@string/title_weading"
@@ -59,7 +52,7 @@
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nosotros_tv" />
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <TextView
             android:id="@+id/date_tv"
@@ -87,26 +80,41 @@
             app:layout_constraintGuide_percent="0.3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/nosotros_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/willpower"
+        android:text="@string/ours_title"
+        android:layout_marginTop="120dp"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/faltan_title_tv"
+        style="@style/date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/faltan_weading"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_image_cl"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
+        android:background="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_image_cl">
+        app:layout_constraintTop_toBottomOf="@id/faltan_title_tv">
 
-        <TextView
-            android:id="@+id/faltan_title_tv"
-            style="@style/date_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/faltan_weading"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/count_cl"
@@ -114,7 +122,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/faltan_title_tv">
+            app:layout_constraintTop_toTopOf="parent">
 
             <RelativeLayout
                 android:id="@+id/back_day"
@@ -258,42 +266,89 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:id="@+id/estas_inv_tv"
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inv_title"
-        android:textSize="45sp"
-        android:fontFamily="@font/shettricka"
-        android:layout_marginEnd="10dp"
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_cl" />
-    <TextView
-        android:id="@+id/we_want_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/we_want_title"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/comfortaa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/estas_inv_tv" />
+        app:layout_constraintTop_toBottomOf="@id/header_cl"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/primaryTextColor"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/estas_inv_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/shettricka"
+                android:text="@string/inv_title"
+                android:textSize="45sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/we_want_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="center"
+                android:text="@string/we_want_title"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/estas_inv_tv" />
+
+            <TextView
+                android:id="@+id/papas_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="center"
+                android:text="@string/we_want_title"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/we_want_tv" />
+
+            <TextView
+                android:id="@+id/mamas_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="center"
+                android:text="@string/we_want_title"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/papas_tv" />
 
 
-    <nl.dionsegijn.konfetti.xml.KonfettiView
-        android:id="@+id/konfettiView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <nl.dionsegijn.konfetti.xml.KonfettiView
+                android:id="@+id/konfettiView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.motion.widget.MotionLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
