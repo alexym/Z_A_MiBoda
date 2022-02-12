@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Invitación</string>
+    <string name="menu_home">Invitación de Z &amp; A</string>
     <string name="menu_gallery">Galería</string>
     <string name="menu_location">Ubicación</string>
     <string name="menu_recomendation">Recomendaciones</string>
@@ -21,7 +21,7 @@
     <string name="date_weading">04 / 06 / 2022</string>
     <string name="ours_title">Zaira &amp; Alejandro</string>
     <string name="inv_title">¡Estás invitado!</string>
-    <string name="za">Z&amp;A</string>
+    <string name="za">Z &amp; A</string>
     <string name="we_want_title">Queremos que seas parte de este momento tan importante para nosotros.</string>
     <string name="direccion">Tulio Estrada #125, Colonia Campo Sotelo. Temixco Morelos</string>
 </resources>

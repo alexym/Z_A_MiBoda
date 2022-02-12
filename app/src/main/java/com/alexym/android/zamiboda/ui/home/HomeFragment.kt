@@ -1,23 +1,20 @@
 package com.alexym.android.zamiboda.ui.home
 
-import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
+import android.R.attr
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AnimationUtils
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.alexym.android.zamiboda.R
 import com.alexym.android.zamiboda.databinding.FragmentHomeBBinding
-import com.alexym.android.zamiboda.databinding.FragmentHomeBinding
 import com.alexym.android.zamiboda.utils.konfetti.Presets.Companion.explode
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions.bitmapTransform
-import jp.wasabeef.blurry.Blurry
-import jp.wasabeef.glide.transformations.BlurTransformation
 import nl.dionsegijn.konfetti.core.Party
 import nl.dionsegijn.konfetti.xml.KonfettiView
 import nl.dionsegijn.konfetti.xml.listeners.OnParticleSystemUpdateListener
@@ -62,6 +59,45 @@ class HomeFragment : Fragment() {
             if (it)
                 initKonfetti()
         })
+
+        val animation = AnimationUtils.loadAnimation(context, R.anim.arrow).apply {
+            duration = 500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        binding.arrowDownIv.startAnimation(animation)
+        binding.scrollable.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            val TAG = "nested_sync"
+            Log.e(TAG, scrollX.toString())
+        })
+//        binding.scrollable.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+//            run {
+////                if (scrollY < 0) {
+////                    binding.arrowDownIv.visibility = GONE
+////                }
+//                val TAG = "nested_sync"
+//                Log.i(TAG, scrollX.toString())
+//                if (scrollY > oldScrollY) {
+//                    Log.i(TAG, "Scroll DOWN")
+//                }
+//                if (scrollY < oldScrollY) {
+//                    Log.i(TAG, "Scroll UP")
+//                }
+//
+//                if (scrollY == 0) {
+//                    Log.i(TAG, "TOP SCROLL")
+//                }
+//
+//                if (scrollY == v.getChildAt(0).measuredHeight - v.measuredHeight) {
+//                    Log.i(TAG, "BOTTOM SCROLL")
+////                    if (!isRecyclerViewWaitingtoLaadData) //check for scroll down
+////                    {
+////                        if (!loadedAllItems) {
+////                            showUnSentData()
+////                        }
+////                    }
+//                }
+//            }
+//        })
     }
 
     private fun initKonfetti() {
