@@ -24,4 +24,10 @@
     <string name="za">Z &amp; A</string>
     <string name="we_want_title">Queremos que seas parte de este momento tan importante para nosotros.</string>
     <string name="direccion">Tulio Estrada #125, Colonia Campo Sotelo. Temixco Morelos</string>
+    <string name="bless_papas">Con la Bendición de nuestros Padres:</string>
+    <string name="padrinos">Nuestros padrinos:</string>
+    <string name="padrinos_name">Zeida Diaz &amp; Juan Manuel Álvarez</string>
+    <string name="zai_papas">Ma. Elena Villanueva &amp; Abraham Diaz</string>
+    <string name="ale_papas">Artemisa Rodarte &amp; Vicente Gómez</string>
+    <string name="y_papas">Y</string>
 </resources>

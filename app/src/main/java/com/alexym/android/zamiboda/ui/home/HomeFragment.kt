@@ -80,21 +80,21 @@ class HomeFragment : Fragment() {
 //                Log.i(TAG, "Scroll DOWN")
 //            }
 //        })
-        binding.scrollable.setScrollListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            Log.i(TAG, "se escrolea")
-            if (scrollY > oldScrollY) {
-                Log.i(TAG, "Scroll DOWN")
-            }
-            if (scrollY < oldScrollY) {
-                Log.i(TAG, "Scroll UP")
-            }
-            if (scrollY == 0) {
-                Log.i(TAG, "TOP SCROLL")
-            }
-            if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
-                Log.i(TAG, "BOTTOM SCROLL")
-            }
-        })
+//        binding.scrollable.setScrollListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+//            Log.i(TAG, "se escrolea")
+//            if (scrollY > oldScrollY) {
+//                Log.i(TAG, "Scroll DOWN")
+//            }
+//            if (scrollY < oldScrollY) {
+//                Log.i(TAG, "Scroll UP")
+//            }
+//            if (scrollY == 0) {
+//                Log.i(TAG, "TOP SCROLL")
+//            }
+//            if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
+//                Log.i(TAG, "BOTTOM SCROLL")
+//            }
+//        })
 //        binding.scrollable.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
 //            run {
 ////                if (scrollY < 0) {

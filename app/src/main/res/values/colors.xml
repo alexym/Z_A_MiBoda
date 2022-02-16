@@ -9,4 +9,6 @@
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#ffffff</color>
     <color name="black">#000</color>
+<!--    <color name="back">#FFF9F5</color>-->
+    <color name="back">#FAEEE6</color>
 </resources>
