@@ -1,11 +1,11 @@
 package com.alexym.android.zamiboda.ui.home
 
-import android.R.attr
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import androidx.core.widget.NestedScrollView
@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBBinding? = null
+    val TAG = "nested_sync"
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -65,9 +66,34 @@ class HomeFragment : Fragment() {
             interpolator = AccelerateDecelerateInterpolator()
         }
         binding.arrowDownIv.startAnimation(animation)
-        binding.scrollable.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            val TAG = "nested_sync"
-            Log.e(TAG, scrollX.toString())
+//        binding.scrollable.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+//            val TAG = "nested_sync"
+//            Log.e(TAG, scrollX.toString())
+//        })
+//        binding.scrollable.setOnScrollChangeListener(ViewTreeObserver.OnScrollChangedListener {
+//
+//            val diff: Int =
+//                binding.scrollable.getChildAt(binding.scrollable.getChildCount() - 1).bottom - (binding.scrollable.getHeight() + binding.scrollable
+//                    .getScrollY())
+//
+//            if (diff == 0) {
+//                Log.i(TAG, "Scroll DOWN")
+//            }
+//        })
+        binding.scrollable.setScrollListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            Log.i(TAG, "se escrolea")
+            if (scrollY > oldScrollY) {
+                Log.i(TAG, "Scroll DOWN")
+            }
+            if (scrollY < oldScrollY) {
+                Log.i(TAG, "Scroll UP")
+            }
+            if (scrollY == 0) {
+                Log.i(TAG, "TOP SCROLL")
+            }
+            if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
+                Log.i(TAG, "BOTTOM SCROLL")
+            }
         })
 //        binding.scrollable.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
 //            run {
