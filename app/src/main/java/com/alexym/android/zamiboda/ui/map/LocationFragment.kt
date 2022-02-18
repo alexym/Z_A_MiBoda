@@ -36,12 +36,15 @@ class LocationFragment : Fragment() {
          */
         val locationE = LatLng(18.8357317, -99.2134126)
         val color = context?.let { ContextCompat.getColor(it, R.color.secondaryDarkColor) }
-        googleMap.addMarker(
+        val markerB = googleMap.addMarker(
             MarkerOptions()
                 .position(locationE)
-                .title("Marker in Sydney")
+                .title("!Aquí nos casaremos!")
+                .snippet("Ceremonia religiosa y Celebración")
                 .icon(color?.let { context?.let { it1 -> vectorToBitmap(it1,R.drawable.ic_location, it) } }))
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationE, 17f))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationE, 16f))
+        googleMap.setOnCameraIdleListener { markerB?.showInfoWindow() }
+
     }
 
 
