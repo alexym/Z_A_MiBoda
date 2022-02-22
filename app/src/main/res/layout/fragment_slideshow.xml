@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:background="@color/back"
     tools:context=".ui.tomanota.TomaNotaFragment">
+    <ImageView
+        android:id="@+id/top_corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rotation="135"
+        android:src="@drawable/corners_flowers" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_ns"
