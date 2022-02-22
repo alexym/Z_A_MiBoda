@@ -243,6 +243,7 @@
                 app:layout_constraintStart_toStartOf="@+id/back_hour"
                 app:layout_constraintTop_toBottomOf="@id/back_hour" />
 
+
             <TextView
                 android:id="@+id/minutes_title_tv"
                 style="@style/date_title"
