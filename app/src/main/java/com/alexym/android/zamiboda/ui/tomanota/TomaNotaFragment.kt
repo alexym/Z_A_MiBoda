@@ -1,4 +1,4 @@
-package com.alexym.android.zamiboda.ui.slideshow
+package com.alexym.android.zamiboda.ui.tomanota
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.alexym.android.zamiboda.R
 import com.alexym.android.zamiboda.databinding.FragmentSlideshowBinding
 
-class SlideshowFragment : Fragment() {
+class TomaNotaFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
+    private lateinit var slideshowViewModel: TomaNotaViewModel
     private var _binding: FragmentSlideshowBinding? = null
 
     // This property is only valid between onCreateView and
@@ -26,7 +25,7 @@ class SlideshowFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         slideshowViewModel =
-                ViewModelProvider(this).get(SlideshowViewModel::class.java)
+            ViewModelProvider(this)[TomaNotaViewModel::class.java]
 
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root

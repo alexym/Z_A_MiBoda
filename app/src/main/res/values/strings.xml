@@ -10,7 +10,7 @@
     <string name="menu_home">Nuestra Invitación</string>
     <string name="menu_gallery">Galería</string>
     <string name="menu_location">Ubicación</string>
-    <string name="menu_recomendation">Recomendaciones</string>
+    <string name="menu_recomendation">Toma Nota</string>
 
     <string name="days_title">Días</string>
     <string name="hours_title">Horas</string>
@@ -30,4 +30,5 @@
     <string name="zai_papas">Ma. Elena Villanueva &amp; Abraham Diaz</string>
     <string name="ale_papas">Artemisa Rodarte &amp; Vicente Gómez</string>
     <string name="y_papas">Y</string>
+    <string name="message_a">¡Atención, atención! Es importante tomes en cuenta cada punto.</string>
 </resources>

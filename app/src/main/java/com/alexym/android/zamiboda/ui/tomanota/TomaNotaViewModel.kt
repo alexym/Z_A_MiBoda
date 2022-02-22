@@ -1,10 +1,10 @@
-package com.alexym.android.zamiboda.ui.slideshow
+package com.alexym.android.zamiboda.ui.tomanota
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SlideshowViewModel : ViewModel() {
+class TomaNotaViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"

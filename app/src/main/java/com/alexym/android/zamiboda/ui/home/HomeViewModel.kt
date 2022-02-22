@@ -32,40 +32,48 @@ class HomeViewModel : ViewModel() {
         val format1 = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
         val endDate = format1.parse(Constants.EVENT_DATE_TIME)
         var different = endDate.time - currentTime.time
-        countdown_timer = object : CountDownTimer(different, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                var diff = millisUntilFinished
-                val secondsInMilli: Long = 1000
-                val minutesInMilli = secondsInMilli * 60
-                val hoursInMilli = minutesInMilli * 60
-                val daysInMilli = hoursInMilli * 24
+        if(different<0){
+            _days.value = "00"
+            _hours.value = "00"
+            _minutes.value = "00"
+            _seconds.value = "00"
+        }else {
+            countdown_timer = object : CountDownTimer(different, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    var diff = millisUntilFinished
+                    val secondsInMilli: Long = 1000
+                    val minutesInMilli = secondsInMilli * 60
+                    val hoursInMilli = minutesInMilli * 60
+                    val daysInMilli = hoursInMilli * 24
 
-                val elapsedDays = diff / daysInMilli
-                diff %= daysInMilli
+                    val elapsedDays = diff / daysInMilli
+                    diff %= daysInMilli
 
-                val elapsedHours = diff / hoursInMilli
-                diff %= hoursInMilli
+                    val elapsedHours = diff / hoursInMilli
+                    diff %= hoursInMilli
 
-                val elapsedMinutes = diff / minutesInMilli
-                diff %= minutesInMilli
+                    val elapsedMinutes = diff / minutesInMilli
+                    diff %= minutesInMilli
 
-                val elapsedSeconds = diff / secondsInMilli
+                    val elapsedSeconds = diff / secondsInMilli
 
-                _days.value = "$elapsedDays"
-                if (initializeKonfettiView) {
-                    initializeKonfettiView = false
-                    _isToday.value = elapsedDays == 0L
+
+                    if (initializeKonfettiView) {
+                        initializeKonfettiView = false
+                        _isToday.value = elapsedDays == 0L
+                    }
+                    _days.value = "$elapsedDays"
+                    _hours.value = "$elapsedHours"
+                    _minutes.value = "$elapsedMinutes"
+                    _seconds.value = "$elapsedSeconds"
                 }
-                _hours.value = "$elapsedHours"
-                _minutes.value = "$elapsedMinutes"
-                _seconds.value = "$elapsedSeconds"
-            }
 
-            override fun onFinish() {
+                override fun onFinish() {
 
+                }
             }
+            countdown_timer.start()
         }
-        countdown_timer.start()
 
     }
 }
