@@ -25,15 +25,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class LocationFragment : Fragment() {
     private val callback = OnMapReadyCallback { googleMap ->
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
         val locationE = LatLng(18.8357317, -99.2134126)
         val color = context?.let { ContextCompat.getColor(it, R.color.secondaryDarkColor) }
         val markerB = googleMap.addMarker(
@@ -65,17 +56,6 @@ class LocationFragment : Fragment() {
         vectorDrawable.draw(canvas)
         return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
-
-//    fun getBitmapDescriptorFromVector(context: Context, @DrawableRes vectorDrawableResourceId: Int): BitmapDescriptor? {
-//
-//        val vectorDrawable = ContextCompat.getDrawable(context, vectorDrawableResourceId)
-//        val bitmap = Bitmap.createBitmap(vectorDrawable!!.intrinsicWidth, vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
-//        val canvas = Canvas(bitmap)
-//        vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
-//        vectorDrawable.draw(canvas)
-//
-//        return BitmapDescriptorFactory.fromBitmap(bitmap)
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
