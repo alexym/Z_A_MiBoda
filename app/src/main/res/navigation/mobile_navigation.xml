@@ -22,4 +22,9 @@
         android:name="com.alexym.android.zamiboda.ui.map.LocationFragment"
         android:label="@string/menu_location"
         tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/nav_recomendation"
+        android:name="com.alexym.android.zamiboda.ui.tomanota.TomaNotaFragment"
+        android:label="@string/menu_recomendation"
+        tools:layout="@layout/fragment_slideshow" />
 </navigation>

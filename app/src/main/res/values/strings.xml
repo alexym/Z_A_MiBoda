@@ -31,4 +31,11 @@
     <string name="ale_papas">Artemisa Rodarte &amp; Vicente Gómez</string>
     <string name="y_papas">Y</string>
     <string name="message_a">¡Atención, atención! Es importante tomes en cuenta cada punto.</string>
+    <string name="message_b">*Después de la ceremonia no te muevas tanto ya que ahí mismo será el ¡pachangón!</string>
+    <string name="message_c">*No olvides llevar repelente por si los moscos quieren atacarte.</string>
+    <string name="message_d">*Queremos que te diviertas, por eso decidimos:</string>
+    <string name="message_d_">No invitar niños.</string>
+    <string name="message_e">*Recuerda seguir con los protocolos COVID.</string>
+    <string name="message_dress_c">DressCode</string>
+    <string name="message_dress_">Vestimenta FORMAL</string>
 </resources>
