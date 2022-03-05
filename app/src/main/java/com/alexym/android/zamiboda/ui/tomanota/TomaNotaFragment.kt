@@ -1,5 +1,7 @@
 package com.alexym.android.zamiboda.ui.tomanota
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +41,17 @@ class TomaNotaFragment : Fragment() {
         }
         binding.topCorner.startAnimation(animation)
         binding.topCornerB.startAnimation(animation)
+        binding.textG.setOnClickListener(View.OnClickListener {
+            val i =  Intent(Intent.ACTION_VIEW);
+            i.data = Uri.parse("https://api.whatsapp.com/send?phone=525559093466")
+            startActivity(i)
+        })
+        binding.textH.setOnClickListener(View.OnClickListener {
+            val i =  Intent(Intent.ACTION_VIEW);
+            i.data = Uri.parse("https://api.whatsapp.com/send?phone=525611259511")
+            startActivity(i)
+        })
+
         return root
     }
 

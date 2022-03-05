@@ -1,5 +1,7 @@
 package com.alexym.android.zamiboda.ui.gallery
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,10 +32,10 @@ class GalleryFragment : Fragment() {
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+        binding.mesa.setOnClickListener(View.OnClickListener {
+            val defaultBrowser = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+            defaultBrowser.data = Uri.parse("https://mesaderegalos.liverpool.com.mx/milistaderegalos/50747720")
+            startActivity(defaultBrowser)
         })
         return root
     }

@@ -9,16 +9,17 @@
             android:icon="@drawable/ic_invitation"
             android:title="@string/menu_home" />
         <item
+            android:id="@+id/nav_recomendation"
+            android:icon="@drawable/ic_recomendation"
+            android:title="@string/menu_recomendation" />
+        <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/ic_baseline_card_giftcard_24"
+            android:title="@string/mesa_regalos" />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/ic_location"
             android:title="@string/menu_location" />
-        <item
-            android:id="@+id/nav_recomendation"
-            android:icon="@drawable/ic_recomendation"
-            android:title="@string/menu_recomendation" />
+
     </group>
 </menu>

@@ -30,7 +30,7 @@ class LocationFragment : Fragment() {
         val markerB = googleMap.addMarker(
             MarkerOptions()
                 .position(locationE)
-                .title("!Aquí nos casaremos!")
+                .title("¡Aquí nos casaremos!")
                 .snippet("Ceremonia religiosa y Celebración")
                 .icon(color?.let { context?.let { it1 -> vectorToBitmap(it1,R.drawable.ic_location, it) } }))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationE, 16f))
